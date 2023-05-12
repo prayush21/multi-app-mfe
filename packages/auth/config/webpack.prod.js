@@ -7,14 +7,14 @@ const prodConfig = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    publicPath: '/marketing/latest/', //For files(other than webpack) like remoteEntry file to find the files that are stashed by webpack
+    publicPath: '/auth/latest/',
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'marketing',
+      name: 'auth',
       filename: 'remoteEntry.js',
       exposes: {
-        './MarketingApp': './src/bootstrap',
+        './AuthApp': './src/bootstrap',
       },
       shared: packageJson.dependencies,
     }),

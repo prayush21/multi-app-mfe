@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { createMemoryHistory, createBrowserHistory } from 'history';
+
 const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   const history =
     defaultHistory ||
@@ -17,7 +18,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   return {
     onParentNavigate: ({ pathname: nextPathname }) => {
       const { pathname } = history.location;
-
+      console.log('next:', nextPathname);
       if (pathname !== nextPathname) {
         history.push(nextPathname);
       }
@@ -27,7 +28,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 
 //For Development and in isolation
 if (process.env.NODE_ENV == 'development') {
-  const devRoot = document.querySelector('#_marketing-dev-root');
+  const devRoot = document.querySelector('#auth-dev-root');
 
   if (devRoot) {
     mount(devRoot, { defaultHistory: createBrowserHistory() });
