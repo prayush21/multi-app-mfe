@@ -6,20 +6,23 @@ const packageJson = require('./../package.json');
 const devConfig = {
   mode: 'development',
   output: {
-    publicPath: 'http://localhost:9002/', //Need to set it because else the the main.js made by webpack will be lost at some other place.
+    publicPath: 'http://localhost:9003/', //Need to set it because else the the main.js made by webpack will be lost at some other place.
   },
   devServer: {
-    port: 9002,
+    port: 9003,
     historyApiFallback: {
       index: '/index.html',
+    },
+    headers: {
+      'Access-Control-Allow-Origin': '* ',
     },
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'auth',
+      name: 'dashboard',
       filename: 'remoteEntry.js',
       exposes: {
-        './AuthApp': './src/bootstrap',
+        './DashboardApp': './src/bootstrap',
       },
       shared: packageJson.dependencies,
     }),

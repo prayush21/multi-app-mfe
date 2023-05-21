@@ -17,6 +17,7 @@ const devConfig = {
       remotes: {
         marketing: 'marketing@http://localhost:9001/remoteEntry.js',
         auth: 'auth@http://localhost:9002/remoteEntry.js',
+        dashboard: 'dashboard@http://localhost:9003/remoteEntry.js',
       },
       shared: packageJson.dependencies,
     }),
