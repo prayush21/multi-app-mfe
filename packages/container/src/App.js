@@ -19,7 +19,7 @@ export default () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
-    console.log('isSignedIn', isSignedIn);
+    // console.log('isSignedIn', isSignedIn);
     if (isSignedIn) {
       history.push('/dashboard');
     }
